@@ -1,0 +1,663 @@
+[
+	{
+		"url": "abdominal-hernia",
+		"symptoms": [{
+				"probability": 65,
+				"name": "sharp-abdominal-pain"
+			}, {
+				"probability": 32,
+				"name": "groin-mass"
+			}, {
+				"probability": 29,
+				"name": "ache-all-over"
+			}, {
+				"probability": 23,
+				"name": "upper-abdominal-pain"
+			}, {
+				"probability": 21,
+				"name": "groin-pain"
+			}, {
+				"probability": 21,
+				"name": "lower-abdominal-pain"
+			}, {
+				"probability": 18,
+				"name": "irregular-belly-button"
+			}, {
+				"probability": 12,
+				"name": "swollen-abdomen"
+			}, {
+				"probability": 6,
+				"name": "regurgitation"
+			}, {
+				"probability": 2,
+				"name": "infant-spitting-up"
+			}, {
+				"probability": 2,
+				"name": "swelling-of-scrotum"
+			}, {
+				"probability": 2,
+				"name": "symptoms-of-the-scrotum-and-testes"
+			}
+		],
+		"name": "ernia",
+		"wikipedia": "https://it.wikipedia.org/wiki/ernia",
+		"senses": ["ernia", "ernia inguinale", "ernia ombelicale", "ernia epigastrica", "ernia crurale", "uallera", "ernia strozzata", "ernie"],
+		"descriptions": ["Patologia dovuta alla fuoriuscita di un viscre dalla cavit\u00e0 in cui \u00e8 normalmente contenuto", "Per ernia si intende la fuoriuscita di un viscere dalla cavit\u00e0 che normalmente lo contiene, attraverso un orifizio, un canale anatomico o comunque una soluzione di continuo."],
+		"synset_id": "bn:00043848n"
+	}, {
+		"url": "acne",
+		"symptoms": [{
+				"probability": 94,
+				"name": "acne-or-pimples"
+			}, {
+				"probability": 38,
+				"name": "skin-rash"
+			}, {
+				"probability": 21,
+				"name": "abnormal-appearing-skin"
+			}, {
+				"probability": 20,
+				"name": "skin-moles"
+			}, {
+				"probability": 17,
+				"name": "skin-swelling"
+			}, {
+				"probability": 13,
+				"name": "skin-growth"
+			}, {
+				"probability": 10,
+				"name": "warts"
+			}, {
+				"probability": 10,
+				"name": "skin-dryness-peeling-scaliness-or-roughness"
+			}, {
+				"probability": 4,
+				"name": "too-little-hair"
+			}, {
+				"probability": 4,
+				"name": "irregular-appearing-scalp"
+			}, {
+				"probability": 3,
+				"name": "nose-deformity"
+			}, {
+				"probability": 3,
+				"name": "long-menstrual-periods"
+			}
+		],
+		"name": "acne",
+		"senses": ["acne"],
+		"descriptions": ["Malattia della pelle"],
+		"synset_id": "bn:00000944n"
+	}, {
+		"url": "actinic-keratosis",
+		"symptoms": [{
+				"probability": 72,
+				"name": "abnormal-appearing-skin"
+			}, {
+				"probability": 70,
+				"name": "skin-lesion"
+			}, {
+				"probability": 54,
+				"name": "skin-dryness-peeling-scaliness-or-roughness"
+			}, {
+				"probability": 34,
+				"name": "skin-growth"
+			}, {
+				"probability": 26,
+				"name": "skin-rash"
+			}, {
+				"probability": 24,
+				"name": "irregular-appearing-scalp"
+			}, {
+				"probability": 21,
+				"name": "skin-moles"
+			}, {
+				"probability": 19,
+				"name": "skin-swelling"
+			}, {
+				"probability": 18,
+				"name": "itching-of-skin"
+			}, {
+				"probability": 13,
+				"name": "skin-irritation"
+			}, {
+				"probability": 7,
+				"name": "warts"
+			}, {
+				"probability": 7,
+				"name": "symptoms-of-the-face"
+			}
+		],
+		"name": "Cheratosi solare",
+		"wikipedia": "https://it.wikipedia.org/wiki/Cheratosi_solare",
+		"senses": ["cheratosi solare", "cheratosi senile", "cheratosi attinica", "cheratosi attiniche"],
+		"descriptions": ["Per cheratosi solare in campo medico si intende una forma di ipercheratosi di natura solare sulla cute, \u00e8 una lesione pre-cancerosa displastica che pu\u00f2 evolvere in una forma maligna, per via della condizione di possibile evoluzione viene chiamata precancrerosi e non tumore benigno."],
+		"synset_id": "bn:00001098n"
+	}, {
+		"url": "acute-bronchiolitis",
+		"symptoms": [{
+				"probability": 91,
+				"name": "cough"
+			}, {
+				"probability": 78,
+				"name": "fever"
+			}, {
+				"probability": 76,
+				"name": "nasal-congestion"
+			}, {
+				"probability": 59,
+				"name": "wheezing"
+			}, {
+				"probability": 56,
+				"name": "difficulty-breathing"
+			}, {
+				"probability": 42,
+				"name": "vomiting"
+			}, {
+				"probability": 41,
+				"name": "coryza"
+			}, {
+				"probability": 33,
+				"name": "shortness-of-breath"
+			}, {
+				"probability": 18,
+				"name": "decreased-appetite"
+			}, {
+				"probability": 13,
+				"name": "irritable-infant"
+			}, {
+				"probability": 12,
+				"name": "pulling-at-ears"
+			}, {
+				"probability": 8,
+				"name": "hurts-to-breath"
+			}
+		],
+		"name": "bronchiolite",
+		"senses": ["bronchiolite"],
+		"descriptions": ["Un'infezione del tratto respiratorio inferiore che colpisce le vie respiratorie pi\u00f9 piccole (bronchioli). \u00e8 comune nei bambini, specialmente durante i mesi invernali, a causa di epidemie del virus RSV"],
+		"synset_id": "bn:00013312n"
+	}, {
+		"url": "acute-bronchitis",
+		"symptoms": [{
+				"probability": 92,
+				"name": "cough"
+			}, {
+				"probability": 66,
+				"name": "nasal-congestion"
+			}, {
+				"probability": 63,
+				"name": "fever"
+			}, {
+				"probability": 55,
+				"name": "sore-throat"
+			}, {
+				"probability": 52,
+				"name": "shortness-of-breath"
+			}, {
+				"probability": 49,
+				"name": "coryza"
+			}, {
+				"probability": 46,
+				"name": "sharp-chest-pain"
+			}, {
+				"probability": 37,
+				"name": "coughing-up-sputum"
+			}, {
+				"probability": 33,
+				"name": "congestion-in-chest"
+			}, {
+				"probability": 32,
+				"name": "headache"
+			}, {
+				"probability": 30,
+				"name": "difficulty-breathing"
+			}, {
+				"probability": 27,
+				"name": "wheezing"
+			}
+		],
+		"name": "Bronchite acuta",
+		"wikipedia": "https://it.wikipedia.org/wiki/Bronchite_acuta",
+		"senses": ["bronchite acuta", "bronchite acuta irritativa"],
+		"descriptions": ["La bronchite acuta \u00e8 la forma acuta della bronchite, un'infiammazione tracheo-bronchiale.", "Malattia dell'apparato respiratorio"],
+		"synset_id": "bn:02382357n"
+	}, {
+		"url": "acute-kidney-injury",
+		"symptoms": [{
+				"probability": 41,
+				"name": "shortness-of-breath"
+			}, {
+				"probability": 39,
+				"name": "weakness"
+			}, {
+				"probability": 30,
+				"name": "vomiting"
+			}, {
+				"probability": 29,
+				"name": "dizziness"
+			}, {
+				"probability": 27,
+				"name": "nausea"
+			}, {
+				"probability": 26,
+				"name": "sharp-abdominal-pain"
+			}, {
+				"probability": 25,
+				"name": "sharp-chest-pain"
+			}, {
+				"probability": 20,
+				"name": "kidney-mass"
+			}, {
+				"probability": 18,
+				"name": "symptoms-of-the-kidneys"
+			}, {
+				"probability": 14,
+				"name": "peripheral-edema"
+			}, {
+				"probability": 13,
+				"name": "blood-in-urine"
+			}, {
+				"probability": 13,
+				"name": "retention-of-urine"
+			}
+		],
+		"name": "Insufficienza renale acuta",
+		"wikipedia": "https://it.wikipedia.org/wiki/Insufficienza_renale_acuta",
+		"senses": ["insufficienza renale acuta", "blocco renale", "avvelenamento uremico", "danno renale acuto"],
+		"descriptions": ["L'insufficienza renale acuta \u00e8 una sindrome clinica caratterizzata da una rapida riduzione della funzionalit\u00e0 renale che determina aumento della azotemia, uremia, creatininemia, oliguria, alterazioni elettrolitiche e dell'equilibrio acido-base."],
+		"synset_id": "bn:00001215n"
+	}, {
+		"url": "acute-otitis-media",
+		"symptoms": [{
+				"probability": 84,
+				"name": "ear-pain"
+			}, {
+				"probability": 70,
+				"name": "fever"
+			}, {
+				"probability": 67,
+				"name": "cough"
+			}, {
+				"probability": 58,
+				"name": "nasal-congestion"
+			}, {
+				"probability": 46,
+				"name": "redness-in-ear"
+			}, {
+				"probability": 42,
+				"name": "fluid-in-ear"
+			}, {
+				"probability": 40,
+				"name": "sore-throat"
+			}, {
+				"probability": 35,
+				"name": "coryza"
+			}, {
+				"probability": 35,
+				"name": "pulling-at-ears"
+			}, {
+				"probability": 24,
+				"name": "vomiting"
+			}, {
+				"probability": 24,
+				"name": "diminished-hearing"
+			}, {
+				"probability": 20,
+				"name": "plugged-feeling-in-ear"
+			}
+		],
+		"name": "otite media",
+		"wikipedia": "https://it.wikipedia.org/wiki/otite_media",
+		"senses": ["otite media", "otite catarrale acuta", "otite dell'orecchio medio", "otite purulenta acuta"],
+		"descriptions": ["L'otite media \u00e8 un'infiammazione dell'orecchio medio, o una infezione dell'orecchio medio."],
+		"synset_id": "bn:00059711n"}, {
+		"url": "smoking-or-tobacco-addiction",
+		"senses": ["Dipendenza da fumo", "Dipendenza da tabacco", "nicotinismo", "tabagismo"],
+		"descriptions": ["Una necessit\u00e0 compulsiva di continuare ad usare prodotti contenenti nicotina (ad esempio fumare sigarette o sigari, masticare tabacco, ecc.). L'interruzione dell'uso di nicotina porta a sintomi di astinenza come ansia, depressione e mal di testa."],
+		"symptoms": [{
+				"probability": 44,
+				"name": "smoking-problems"
+			}, {
+				"probability": 42,
+				"name": "cough"
+			}, {
+				"probability": 34,
+				"name": "sharp-chest-pain"
+			}, {
+				"probability": 31,
+				"name": "shortness-of-breath"
+			}, {
+				"probability": 26,
+				"name": "headache"
+			}, {
+				"probability": 25,
+				"name": "drug-abuse"
+			}, {
+				"probability": 22,
+				"name": "abusing-alcohol"
+			}, {
+				"probability": 8,
+				"name": "coughing-up-sputum"
+			}, {
+				"probability": 5,
+				"name": "hurts-to-breath"
+			}, {
+				"probability": 4,
+				"name": "excessive-anger"
+			}, {
+				"probability": 4,
+				"name": "sinus-congestion"
+			}, {
+				"probability": 3,
+				"name": "hemoptysis"
+			}
+		],
+		"name": "Dipendenza da fumo o tabacco"
+	}, {
+		"url": "sprain-or-strain",
+		"symptoms": [{
+				"probability": 65,
+				"name": "back-pain"
+			}, {
+				"probability": 55,
+				"name": "neck-pain"
+			}, {
+				"probability": 46,
+				"name": "ankle-pain"
+			}, {
+				"probability": 45,
+				"name": "knee-pain"
+			}, {
+				"probability": 44,
+				"name": "low-back-pain"
+			}, {
+				"probability": 42,
+				"name": "shoulder-pain"
+			}, {
+				"probability": 33,
+				"name": "leg-pain"
+			}, {
+				"probability": 30,
+				"name": "foot-or-toe-pain"
+			}, {
+				"probability": 25,
+				"name": "headache"
+			}, {
+				"probability": 24,
+				"name": "wrist-pain"
+			}, {
+				"probability": 21,
+				"name": "hand-or-finger-pain"
+			}, {
+				"probability": 20,
+				"name": "arm-pain"
+			}
+		],
+		"name": "Strappo muscolare",
+		"wikipedia": "https://it.wikipedia.org/wiki/Strappo_muscolare",
+		"senses": ["strappo muscolare"],
+		"descriptions": ["Lo strappo o rottura muscolare \u00e8 una soluzione di continuit\u00e0 muscolare che appare durante una contrazione violenta."],
+		"synset_id": "bn:00074520n"
+	}, {
+		"url": "temporary-or-benign-blood-in-urine",
+		"senses": ["Sangue temporaneo o benigno nelle urine"],
+		"descriptions": ["Sangue nelle urine che non \u00e8 preoccupante per una malattia di base e andr\u00e0 via da solo con il tempo. Un esempio di questo \u00e8 un taglio minore all'interno del tratto urinario che causa piccole quantit\u00e0 di sanguinamento."],
+		"symptoms": [{
+				"probability": 89,
+				"name": "blood-in-urine"
+			}, {
+				"probability": 40,
+				"name": "sharp-abdominal-pain"
+			}, {
+				"probability": 35,
+				"name": "side-pain"
+			}, {
+				"probability": 35,
+				"name": "painful-urination"
+			}, {
+				"probability": 32,
+				"name": "retention-of-urine"
+			}, {
+				"probability": 31,
+				"name": "suprapubic-pain"
+			}, {
+				"probability": 29,
+				"name": "back-pain"
+			}, {
+				"probability": 25,
+				"name": "frequent-urination"
+			}, {
+				"probability": 17,
+				"name": "lower-abdominal-pain"
+			}, {
+				"probability": 14,
+				"name": "involuntary-urination"
+			}, {
+				"probability": 8,
+				"name": "symptoms-of-bladder"
+			}, {
+				"probability": 6,
+				"name": "regurgitation"
+			}
+		],
+		"name": "Sangue temporaneo o benigno nelle urine"
+	}, {
+		"url": "threatened-pregnancy",
+		"symptoms": [{
+				"probability": 79,
+				"name": "spotting-or-bleeding-during-pregnancy"
+			}, {
+				"probability": 69,
+				"name": "sharp-abdominal-pain"
+			}, {
+				"probability": 69,
+				"name": "pain-during-pregnancy"
+			}, {
+				"probability": 67,
+				"name": "uterine-contractions"
+			}, {
+				"probability": 38,
+				"name": "problems-during-pregnancy"
+			}, {
+				"probability": 35,
+				"name": "lower-abdominal-pain"
+			}, {
+				"probability": 28,
+				"name": "cramps-and-spasms"
+			}, {
+				"probability": 24,
+				"name": "back-pain"
+			}, {
+				"probability": 22,
+				"name": "intermenstrual-bleeding"
+			}, {
+				"probability": 18,
+				"name": "pelvic-pain"
+			}, {
+				"probability": 10,
+				"name": "blood-clots-during-menstrual-periods"
+			}, {
+				"probability": 8,
+				"name": "vaginal-discharge"
+			}
+		],
+		"name": "Aborto spontaneo",
+		"wikipedia": "https://it.wikipedia.org/wiki/Morte_endouterina_fetale",
+		"senses": ["aborto spontaneo", "Morte endouterina fetale", "mortinatalit\u00e0"],
+		"descriptions": ["La morte endouterina fetale \u00e8 la morte del feto in utero."],
+		"synset_id": "bn:00055276n"
+	}, {
+		"url": "tooth-disorder",
+		"senses": ["Disturbo del dente", "Disturbo dentale"],
+		"descriptions": ["Qualsiasi problema relativo ai denti, comprese cavit\u00e0, denti scheggiati e denti del giudizio impattati. I problemi ai denti vengono trattati al meglio dal tuo dentista o da una clinica dentale piuttosto che dal pronto soccorso."],
+		"symptoms": [{
+				"probability": 96,
+				"name": "toothache"
+			}, {
+				"probability": 44,
+				"name": "facial-pain"
+			}, {
+				"probability": 37,
+				"name": "gum-pain"
+			}, {
+				"probability": 31,
+				"name": "ear-pain"
+			}, {
+				"probability": 26,
+				"name": "headache"
+			}, {
+				"probability": 22,
+				"name": "mouth-pain"
+			}, {
+				"probability": 22,
+				"name": "peripheral-edema"
+			}, {
+				"probability": 13,
+				"name": "jaw-swelling"
+			}, {
+				"probability": 11,
+				"name": "pain-in-gums"
+			}, {
+				"probability": 4,
+				"name": "bleeding-gums"
+			}, {
+				"probability": 3,
+				"name": "mouth-ulcer"
+			}, {
+				"probability": 3,
+				"name": "swollen-lymph-nodes"
+			}
+		],
+		"name": "Disturbo del dente"
+	}, {
+		"url": "vaginal-cyst",
+		"senses": ["Cisti vaginale"],
+		"descriptions": ["Una raccolta di liquidi in una tasca di tessuto della vagina. Le cisti si possono formare nelle vecchie strutture embriologiche (cisti di Gartner) o nelle ghiandole (cisti della ghiandola di Bartolini). Un impatto minore (ad esempio l'inserimento del tampone) pu\u00f2 anche portare alla formazione di cisti nella parete vaginale."],
+		"symptoms": [{
+				"probability": 56,
+				"name": "sharp-abdominal-pain"
+			}, {
+				"probability": 36,
+				"name": "spotting-or-bleeding-during-pregnancy"
+			}, {
+				"probability": 25,
+				"name": "pelvic-pain"
+			}, {
+				"probability": 24,
+				"name": "vaginal-pain"
+			}, {
+				"probability": 23,
+				"name": "lower-abdominal-pain"
+			}, {
+				"probability": 22,
+				"name": "vaginal-discharge"
+			}, {
+				"probability": 20,
+				"name": "cramps-and-spasms"
+			}, {
+				"probability": 19,
+				"name": "intermenstrual-bleeding"
+			}, {
+				"probability": 17,
+				"name": "blood-clots-during-menstrual-periods"
+			}, {
+				"probability": 15,
+				"name": "pain-during-pregnancy"
+			}, {
+				"probability": 14,
+				"name": "heavy-menstrual-flow"
+			}, {
+				"probability": 11,
+				"name": "problems-during-pregnancy"
+			}
+		],
+		"name": "Cisti vaginale"
+	}, {
+		"url": "venous-insufficiency",
+		"senses": ["Insufficienza venosa"],
+		"descriptions": ["Una serie di sintomi temporanei dovuti alla diminuzione del flusso sanguigno nella parte posteriore del cervello. Ci\u00f2 si verifica spesso nelle persone con restringimento delle arterie nel tempo e le mette a rischio di ictus."],
+		"symptoms": [{
+				"probability": 63,
+				"name": "skin-lesion"
+			}, {
+				"probability": 34,
+				"name": "leg-swelling"
+			}, {
+				"probability": 34,
+				"name": "leg-pain"
+			}, {
+				"probability": 34,
+				"name": "peripheral-edema"
+			}, {
+				"probability": 17,
+				"name": "abnormal-appearing-skin"
+			}, {
+				"probability": 7,
+				"name": "leg-cramps-or-spasms"
+			}, {
+				"probability": 6,
+				"name": "fluid-retention"
+			}, {
+				"probability": 5,
+				"name": "lymphedema"
+			}, {
+				"probability": 4,
+				"name": "skin-on-leg-or-foot-looks-infected"
+			}, {
+				"probability": 4,
+				"name": "ankle-swelling"
+			}, {
+				"probability": 1,
+				"name": "poor-circulation"
+			}, {
+				"probability": 1,
+				"name": "burning-chest-pain"
+			}
+		],
+		"name": "Insufficienza venosa"
+	}, {
+		"url": "white-blood-cell-disease",
+		"senses": ["Malattia dei globuli bianchi"],
+		"descriptions": ["Qualsiasi disturbo dei globuli bianchi (le cellule del sistema immunitario). I problemi includono troppi globuli bianchi, troppi globuli bianchi o globuli bianchi male funzionanti. Molti di questi disturbi portano ad una diminuzione della capacit\u00e0 di combattere le infezioni."],
+		"symptoms": [{
+				"probability": 61,
+				"name": "fever"
+			}, {
+				"probability": 47,
+				"name": "vomiting"
+			}, {
+				"probability": 41,
+				"name": "sharp-abdominal-pain"
+			}, {
+				"probability": 39,
+				"name": "nausea"
+			}, {
+				"probability": 33,
+				"name": "cough"
+			}, {
+				"probability": 28,
+				"name": "diarrhea"
+			}, {
+				"probability": 28,
+				"name": "weakness"
+			}, {
+				"probability": 21,
+				"name": "fatigue"
+			}, {
+				"probability": 10,
+				"name": "chills"
+			}, {
+				"probability": 10,
+				"name": "fluid-retention"
+			}, {
+				"probability": 5,
+				"name": "mouth-pain"
+			}, {
+				"probability": 5,
+				"name": "heartburn"
+			}
+		],
+		"name": "Malattia dei globuli bianchi"
+	}
+]
