@@ -1,5 +1,5 @@
 import json
-f=open("datasetSymptomsIT.json")
+f=open("res/datasetSymptomsIT.json")
 y =f.read()
 
 datasint = json.loads(y)
