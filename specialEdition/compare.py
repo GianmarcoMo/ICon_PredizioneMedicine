@@ -14,37 +14,29 @@ datasintomi= json.loads(z)
 x.close()
 
 
-
 u=open('Medicine_details.json')
 h= u.read()
 datamedicinali= json.loads(h)
 u.close()
 
-datafinalemalattie = []
-datafinalemedicnali = []
-datamalattie = []
+datafinalemalattie= []
+datafinalemedicnali=[]
+
+
 
 for malattia in datamalattie:
     for sintomi in datasintomi:
         if ( malattia["Ita"].lower() in sintomi["url"].lower() or 
             malattia["Ita"].lower() in sintomi["name"].lower() or
-            malattia["Ita"].lower() in sintomi["senses"].lower() or
+            malattia["Ita"].lower() in sintomi["senses"] or
             malattia["Eng"].lower() in sintomi["url"].lower() or 
             malattia["Eng"].lower() in sintomi["name"].lower() or
-            malattia["Eng"].lower() in sintomi["senses"].lower()):
-            datafinalemalattie.append(malattia["Eng"])
-            datamalattie.append(sintomi)
-            print("WE MAURO")
+            malattia["Eng"].lower() in sintomi["senses"]):
+            sintomi["Manufacturer"] = malattia["Eng"]
+            datafinalemalattie.append(sintomi)
             
-            
-            
-for medicinale in datamedicinali:
-    for malattia in datafinalemalattie:
-        if (medicinale["Manufacturer"] == malattia):
-            datafinalemedicnali.append(medicinale)
+print(datasintomi[0])
 
-with open("datasetMedicinaliFinali.json", "w") as write_file:
-    json.dump(datafinalemedicnali, write_file)
 
-with open("datasetConditionsFinali.json", "w") as write_file:
-    json.dump(datamalattie, write_file)
+with open("datasetConditionsFinaliCodiceMalattia.json", "w") as write_file:
+    json.dump(datafinalemalattie, write_file)

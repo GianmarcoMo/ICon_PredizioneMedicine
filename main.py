@@ -1,4 +1,5 @@
 import json
+import operator
 f=open("res/datasetSymptomsIT.json")
 y =f.read()
 
@@ -11,7 +12,6 @@ contatoresintomi = 0;
 for sintomo in datasint:
     sintomi[sintomo["url"]] = sintomo["name"]
     contatoresintomi += 1;
-print(contatoresintomi)
 f.close()
 
 
@@ -20,7 +20,7 @@ listaSintomiUtente = ["http://www.symcat.com/symptoms/skin-lesion",
                       "http://www.symcat.com/symptoms/skin-pain"]
 
 
-f=open("datasetConditionsIT.json")
+f=open("res/datasetConditionsFinaliCodiceMalattia.json")
 
 x =f.read()
 
@@ -42,8 +42,37 @@ for malattia in data:
                 
     if (denominatore != 0):
         probabilita += sintomimatchati
-        risultati[malattia["name"]] = probabilita/(denominatore + contatoresintomi)
+        risultati[malattia["Manufacturer"]] = probabilita/(denominatore + contatoresintomi)
+        
 
 
-print({k: v for k, v in sorted(risultati.items(), key=lambda item: item[1])})
+maxProbability = max(risultati, key=risultati.get)  # Just use 'min' instead of 'max' for minimum.
+
+print(maxProbability)
+
+
+z=open("res/datasetMedicinaliFinalilower.json")
+
+h =z.read()
+
+dataMedicinali = json.loads(h)
+
+dictMedicinali = {}
+
+for medicina in dataMedicinali:
+    if (medicina["Manufacturer"])== maxProbability:
+        prezzomrp = {}
+        prezzomrp["Price"] = medicina["Best Price"]
+        prezzomrp["MRP"] = medicina["MRP"]
+        dictMedicinali[medicina["Medicine Name"]] = prezzomrp
+
+             
+
+
+        
+maxMRP = 0
+
+
+
+
 
