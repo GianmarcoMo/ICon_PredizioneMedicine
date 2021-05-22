@@ -51,27 +51,6 @@ maxProbability = max(risultati, key=risultati.get)  # Just use 'min' instead of 
 print(maxProbability)
 
 
-z=open("res/datasetMedicinaliFinalilower.json")
-
-h =z.read()
-
-dataMedicinali = json.loads(h)
-
-dictMedicinali = {}
-
-for medicina in dataMedicinali:
-    if (medicina["Manufacturer"])== maxProbability:
-        prezzomrp = {}
-        prezzomrp["Price"] = medicina["Best Price"]
-        prezzomrp["MRP"] = medicina["MRP"]
-        dictMedicinali[medicina["Medicine Name"]] = prezzomrp
-
-             
-
-
-        
-maxMRP = 0
-
 
 
 
