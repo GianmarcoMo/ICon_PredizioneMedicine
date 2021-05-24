@@ -43,13 +43,13 @@ for sintomo in listaSintomiUtente:
 dictMalattia = {}
     
 for malattia in dataMalattie:
-    risultato = 0
+    risultato = 1
     for sintomo in malattia["symptoms"]:
         if sintomo["name"] in listaSintomiUtente:
-            risultato += sintomo["probability"]
+            risultato *= sintomo["probability"]
     dictMalattia[malattia["name"]] = risultato
-    
     
     
 maxProbability = max(dictMalattia, key=dictMalattia.get)
 print(maxProbability)
+#print(sorted(dictMalattia.items(), key=lambda x: x[1]))

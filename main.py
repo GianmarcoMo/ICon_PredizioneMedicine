@@ -14,13 +14,11 @@ for sintomo in datasint:
     contatoresintomi += 1;
 f.close()
 
+listaSintomiUtente = ["http://www.symcat.com/symptoms/abnormal-appearing-skin",
+                      "http://www.symcat.com/symptoms/acne-or-pimples",
+                      "http://www.symcat.com/symptoms/skin-rash"]
 
-listaSintomiUtente = ["http://www.symcat.com/symptoms/skin-lesion",
-                      "http://www.symcat.com/symptoms/skin-on-leg-or-foot-looks-infected",
-                      "http://www.symcat.com/symptoms/skin-pain"]
-
-
-f=open("res/datasetConditionsFinaliCodiceMalattia.json")
+f=open("res/datasetConditionsIT.json")
 
 x =f.read()
 
@@ -42,7 +40,7 @@ for malattia in data:
                 
     if (denominatore != 0):
         probabilita += sintomimatchati
-        risultati[malattia["Manufacturer"]] = probabilita/(denominatore + contatoresintomi)
+        risultati[malattia["name"]] = probabilita/(denominatore + contatoresintomi)
         
 
 
@@ -53,5 +51,6 @@ print(maxProbability)
 
 
 
+#print(sorted(risultati.items(), key=lambda x: x[1]))
 
 
