@@ -15,9 +15,9 @@ for sintomo in datasint:
 f.close()
 
 
-listaSintomiUtente = ["http://www.symcat.com/symptoms/sharp-abdominal-pain",
-                      "http://www.symcat.com/symptoms/groin-mass",
-                      "http://www.symcat.com/symptoms/ache-all-over"]
+listaSintomiUtente = ["http://www.symcat.com/symptoms/abnormal-appearing-skin",
+                      "http://www.symcat.com/symptoms/acne-or-pimples",
+                      "http://www.symcat.com/symptoms/skin-rash"]
 
 
 f=open("res/datasetConditionsIT.json")
@@ -27,22 +27,29 @@ x =f.read()
 dataMalattie = json.loads(x)
 
 
-listaMalattie = []
-print(len(dataMalattie))
+
+listacopia = dataMalattie.copy()
 
 for sintomo in listaSintomiUtente:
     for malattia in dataMalattie:
-        contatore = 0
         trovato = False
-        for contatore in range(len(malattia['symptoms'])):
-            if(sintomo == malattia['symptoms'][contatore]['name']):
+        for sintomomalattia in malattia["symptoms"]:
+            if sintomomalattia["name"] == sintomo:
                 trovato = True
-        if(trovato == False):
-            dataMalattie.remove(malattia)
-         
-                
-
-print(len(dataMalattie))
+        if trovato == False:       
+            listacopia.remove(malattia)
+    dataMalattie = listacopia.copy()
+          
+dictMalattia = {}
+    
 for malattia in dataMalattie:
-    print(malattia['url'])
-        
+    risultato = 0
+    for sintomo in malattia["symptoms"]:
+        if sintomo["name"] in listaSintomiUtente:
+            risultato += sintomo["probability"]
+    dictMalattia[malattia["name"]] = risultato
+    
+    
+    
+maxProbability = max(dictMalattia, key=dictMalattia.get)
+print(maxProbability)
