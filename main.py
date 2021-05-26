@@ -1,5 +1,4 @@
 import json
-import operator
 f=open("res/datasetSymptomsIT.json")
 y =f.read()
 
