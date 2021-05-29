@@ -1,3 +1,8 @@
+# Coda con priorita' per creare la frontiera 
+from queue import PriorityQueue
+# put per inserire
+# get per prendere
+
 class StrutturaMappa():
     def __init__(self):
         self.mappa = dict()
@@ -37,6 +42,13 @@ class StrutturaMappa():
         chiave = list(elementoInsiemeVicini.keys())[0]
         # Restituisco il valore della chiave, ovvero il costo
         return elementoInsiemeVicini.get(chiave)
+           
+        
+        
+        
+        
+        
+        
             
 
 # Oggetto 
@@ -85,6 +97,6 @@ mappa.aggiungiCollegamento('Viale del Todis','Via degli Dei', 200)
 mappa.aggiungiCollegamento('Corso Umberto Primo','Via delle querce', 200)
 #----------------------------------------------------------------------
 
-vicino = mappa.getVicini('Viale Aviatori')[0]
-print(mappa.getCosto(vicino))
+#vicino = mappa.getVicini('Viale Aviatori')[0]
+#print(mappa.getCosto(vicino))
 
