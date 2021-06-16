@@ -32,7 +32,9 @@ for malattia in data:
     
     for sintomo in malattia["symptoms"]:  
         for sintomoutente in listaSintomiUtente:
+            print('sintomoutente: ', sintomoutente)
             if (sintomoutente == sintomo["name"]):
+                print('entro if')
                 probabilita = probabilita * sintomo["probability"] /100 
                 denominatore += probabilita
                 sintomimatchati += 1
