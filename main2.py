@@ -15,9 +15,9 @@ for sintomo in datasint:
 f.close()
 
 
-listaSintomiUtente = ["http://www.symcat.com/symptoms/abnormal-appearing-skin",
-                      "http://www.symcat.com/symptoms/acne-or-pimples",
-                      "http://www.symcat.com/symptoms/skin-rash"]
+listaSintomiUtente = ["abnormal-appearing-skin",
+                      "acne-or-pimples",
+                      "skin-rash"]
 
 
 f=open("res/datasetConditionsIT.json")
@@ -46,10 +46,10 @@ for malattia in dataMalattie:
     risultato = 1
     for sintomo in malattia["symptoms"]:
         if sintomo["name"] in listaSintomiUtente:
-            risultato *= sintomo["probability"]
+            risultato += sintomo["probability"]
     dictMalattia[malattia["name"]] = risultato
     
     
 maxProbability = max(dictMalattia, key=dictMalattia.get)
 print(maxProbability)
-#print(sorted(dictMalattia.items(), key=lambda x: x[1]))
+print(sorted(dictMalattia.items(), key=lambda x: x[1]))

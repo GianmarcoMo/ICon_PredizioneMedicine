@@ -2,9 +2,11 @@
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import CommandHandler, CallbackQueryHandler
+import telegram
 import logging
 import predizione
 import riconoscimentoSintomi
+import aStarMatrice
 
 # Lettura file per token
 f = open("token", "r")
@@ -22,6 +24,8 @@ class Sistema:
         self.statoSistema = 2
     def getStato(self):
         return self.statoSistema
+    def reset(self):
+        self.statoSistema = 0
 
 class Persona:
     def __init__(self):
@@ -76,16 +80,29 @@ def echo(update, context):
         elif(messaggioUtente.lower() == 'no' or messaggioUtente.lower() == 'stop' or messaggioUtente.lower()=="non ho altri sintomi"):
             #se abbiamo acquisito sintomi
             if (len(utente.getSintomi())!=0):
-                utente.cambiaStatoSintomi()
+                
                 mostraChatSintomiAcquisiti(update, context)
                 context.bot.send_message(chat_id=update.effective_chat.id, text="Ora controllo cosa hai...")
+                
                 # predizione malattia
-                risultato = riconoscimentoSintomi.predizioneMalattia(utente.getSintomi())
+                if(sistema.getStato() == 1):
+                    risultato = riconoscimentoSintomi.predizioneMalattiaBayes(utente.getSintomi())
+                elif(sistema.getStato() == 2):
+                    risultato = riconoscimentoSintomi.predizioneMalattiaAlbero(utente.getSintomi())
+                    
                 context.bot.send_message(chat_id=update.effective_chat.id, text=f"Secondo i dati che miei fornito potresti avere: *{risultato.getNome()}*", parse_mode=telegram.ParseMode.MARKDOWN)
+                # Fine predizione 
+                
                 if (risultato.getLinkWiki()!=None):
                     context.bot.send_message(chat_id=update.effective_chat.id, text=risultato.getLinkWiki())
                 else:
                      context.bot.send_message(chat_id=update.effective_chat.id, text=risultato.getDescrizione()[0])
+                
+                context.bot.send_message(chat_id=update.effective_chat.id, text="Predizione conclusa, digita o premi */restart* per riavviare", parse_mode=telegram.ParseMode.MARKDOWN)
+                context.bot.send_message(chat_id=update.effective_chat.id, text="Oppure se vuoi avere info sull'ambulanza digita o premi /chiediAmbulanza", parse_mode=telegram.ParseMode.MARKDOWN)
+
+                # Reset lista sintomi acquisita e cambio stato
+                utente.cambiaStatoSintomi()
             else:
                 #se abbiamo acquisito sintomi
                 context.bot.send_message(chat_id=update.effective_chat.id, text="Scusami, non ho ancora compreso nessun sintomo, non posso avviare la predizione della malattia. \nQuale sintomo credi di avere?")
@@ -97,6 +114,7 @@ def echo(update, context):
                  utente.SetRiconoscimento('0')
             elif(messaggioUtente.lower() == 'conferma'):
                 utente.getSintomi().append(riconoscimentoSintomi.conferma())
+                                
                 context.bot.send_message(chat_id=update.effective_chat.id, text="Sintomo acquisito correttamente.\nHai altri sintomi?")
                 utente.SetRiconoscimento('0')
             else:
@@ -105,6 +123,7 @@ def echo(update, context):
                     if(utente.getRiconoscimento() in utente.getSintomi()):
                          context.bot.send_message(chat_id=update.effective_chat.id, text="Sintomo già acquisito in precedenza, inserire un *nuovo sintomo* o digitare *stop*",parse_mode=telegram.ParseMode.MARKDOWN)
                     else:
+                        
                         utente.getSintomi().append(utente.getRiconoscimento())
                         context.bot.send_message(chat_id=update.effective_chat.id, text="Sintomo acquisito correttamente.\nHai altri sintomi?")
                     utente.SetRiconoscimento('0')
@@ -124,7 +143,7 @@ def gestoreMessaggi():
     dispatcher.add_handler(echo_handler)   
 
 def start(update, context):
-    sistema = Sistema()
+    sistema.reset()
     context.bot.send_message(chat_id=update.effective_chat.id, text="Ciao sono il bot per predire malattie in base ai tuoi sintomi.")
     
     keyboard = []
@@ -143,14 +162,6 @@ def bayes_method(update, context):
 def ricerca_albero(update, context):
     sistema.setAlbero()
     context.bot.send_message(chat_id=update.effective_chat.id, text="Dimmi quale sintomo credi di avere")
-
-def risultatoCallBack(update, context):
-    query = update.callback_query
-    query.answer()
-    
-    query.edit_message_text(text="Clicca per confermare: "+ query.data)
-    
-    context.bot.send_message(chat_id=update.effective_chat.id, text="Oppure clicca qui per restartare: /restart")
     
 def unknown(update, context):
     context.bot.send_message(chat_id=update.effective_chat.id, text="Utilizza solo pulsanti o comandi indicati dal bot.")
@@ -158,8 +169,31 @@ def unknown(update, context):
 def stop(update, context):
     context.bot.send_message(chat_id=update.effective_chat.id, text="Ciao ciao")
     updater.stop()
-    
 
+def chiediAmbulanza(update, context):
+    context.bot.send_message(chat_id=update.effective_chat.id, text="Vorresti chiamare l'ambulanza?")
+    
+    keyboard = []
+    keyboard.append([InlineKeyboardButton("SI!", callback_data = "si_chiama")])
+    keyboard.append([InlineKeyboardButton("NO!", callback_data = "no_chiama")])
+
+    reply_markup = InlineKeyboardMarkup(keyboard)
+    
+    update.message.reply_text("Scegli un'opzione tra queste:", reply_markup=reply_markup)
+
+def risultatoCallBack(update, context):
+    cqd = update.callback_query.data
+    query = update.callback_query
+    query.answer()
+    
+    if(cqd == "/bayes_method" or cqd == "/ricerca_albero"):
+        query.edit_message_text(text="Clicca per confermare: "+ query.data)
+        context.bot.send_message(chat_id=update.effective_chat.id, text="Oppure clicca qui per restartare: /restart")
+    elif(cqd == "si_chiama"):
+        aStarMatrice.ambulanza(update, context)
+    elif(cqd == "no_chiama"):
+        context.bot.send_message(chat_id=update.effective_chat.id, text="Clicca o digita /restart per confermare")
+         
 # -------------------------------------------
 sistema = Sistema()
 utente = Persona()
@@ -174,6 +208,8 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 updater.dispatcher.add_handler(CommandHandler('start', start))
 updater.dispatcher.add_handler(CommandHandler('restart', start))
 updater.dispatcher.add_handler(CallbackQueryHandler(risultatoCallBack))
+
+updater.dispatcher.add_handler(CommandHandler('chiediAmbulanza', chiediAmbulanza))
 
 updater.dispatcher.add_handler(CommandHandler('bayes_method', bayes_method))
 updater.dispatcher.add_handler(CommandHandler('ricerca_albero', ricerca_albero))

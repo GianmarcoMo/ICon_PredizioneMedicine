@@ -91,10 +91,10 @@ def a_star_search(graph: WeightedGraph, start: Location, goal: Location):
             new_cost = cost_so_far[current] + graph.cost(current, next)
             if next not in cost_so_far or new_cost < cost_so_far[next]:
                 cost_so_far[next] = new_cost
-                priority = new_cost + heuristic(next, goal)
+                priority = new_cost + heuristic(next, goal)                
                 frontier.put(next, priority)
                 came_from[next] = current
-                
+
     return came_from, cost_so_far
 
 def draw_tile(graph, id, style):
@@ -135,74 +135,66 @@ def costruisciPercorsoVie(percorsoCompleto, indrizzoVia):
     
     for posizione in percorsoCompleto:
         percorsoVie.append((indrizzoVia.get(posizione[1]), posizione[0]))
-    print(percorsoVie)
+    #print(percorsoVie)
         
 
 # ----------------------------------------------
-diagram4 = GridWithWeights(10, 10)
-diagram4.walls = [(1, 1), (1, 2), (1,3), (1,4), (1,5), (1,6), (1,7), (1,8),
-                  (2,8),
-                  (3,6), (3,0), (3,1),(3,2),(3,3), (3,8),
-                  (4,8), 
-                  (5,0), (5,1),(5,2),(5,3),(5,4),(5,5),(5,6),
-                  (7,3), (7,4),(7,5),(7,6),(7,7),(7,8),
-                  (9,0), (9,1), (9,2), (9,6), (9,7), (9,8), (9,9)]
-
-diagram4.weights = {loc: 5 for loc in [(3, 4), (3, 5), (4, 1), (4, 2),
-                                       (4, 3), (4, 4), (4, 5), (4, 6),
-                                       (4, 7), (4, 8), (5, 1), (5, 2),
-                                       (5, 3), (5, 4), (5, 5), (5, 6),
-                                       (5, 7), (5, 8), (6, 2), (6, 3),
-                                       (6, 4), (6, 5), (6, 6), (6, 7),
-                                       (7, 3), (7, 4), (7, 5)]}
-
-goal = (7, 1)
-start = posizioneCasualeAmbulanza(diagram4.walls, goal)
-print(start)
-
-came_from, cost_so_far = a_star_search(diagram4, start, goal)
-
-viaIndirizzo = { "Via Capruzzi": 0,
-    "Via Policlinico": 1,
-    "Viale Aviatori": 2,
-    "Via Marcuzzi": 3,
-    "Via Napoli": 4,
-    "Corso Roma": 5,
-    "Via Lattea": 6,
-    "Via degli Dei": 7,
-    "Via delle querce": 8,
-    "Viale del Todis": 9,
-    "Corso Umberto Primo": 10 }
-
-indrizzoVia = {0:"Via Capruzzi",
-    1:"Via Policlinico",
-    2:"Viale Aviatori",
-    3:"Via Marcuzzi",
-    4:"Via Napoli",
-    5:"Corso Roma",
-    6:"Via Lattea",
-    7:"Via degli Dei",
-    8:"Via delle querce",
-    9:"Viale del Todis",
-    10:"Corso Umberto Primo"}
-
-draw_grid(diagram4, point_to=came_from, start=start, goal=goal)
-print()
-draw_grid(diagram4, path=reconstruct_path(came_from, start=start, goal=goal))
-
-#draw_grid(diagram4, number=cost_so_far, start=start, goal=goal)
-
-path=reconstruct_path(came_from, start=start, goal=goal)
-
-costruisciPercorsoVie(path, indrizzoVia)
-
-
-
-
-
-
-
-
-
-
-
+def ambulanza(update,context):
+    diagram4 = GridWithWeights(10, 10)
+    diagram4.walls = [(1, 1), (1, 2), (1,3), (1,4), (1,5), (1,6), (1,7), (1,8),
+                      (2,8),
+                      (3,6), (3,0), (3,1),(3,2),(3,3), (3,8),
+                      (4,8), 
+                      (5,0), (5,1),(5,2),(5,3),(5,4),(5,5),(5,6),
+                      (7,3), (7,4),(7,5),(7,6),(7,7),(7,8),
+                      (9,0), (9,1), (9,2), (9,6), (9,7), (9,8), (9,9)]
+    
+    diagram4.weights = {loc: 5 for loc in [(3, 4), (3, 5), (4, 1), (4, 2),
+                                           (4, 3), (4, 4), (4, 5), (4, 6),
+                                           (4, 7), (4, 8), (5, 1), (5, 2),
+                                           (5, 3), (5, 4), (5, 5), (5, 6),
+                                           (5, 7), (5, 8), (6, 2), (6, 3),
+                                           (6, 4), (6, 5), (6, 6), (6, 7),
+                                           (7, 3), (7, 4), (7, 5)]}
+    
+    goal = (7, 1)
+    start = posizioneCasualeAmbulanza(diagram4.walls, goal)
+    #print(start)
+    
+    came_from, cost_so_far = a_star_search(diagram4, start, goal)
+    
+    viaIndirizzo = { "Via Capruzzi": 0,
+        "Via Policlinico": 1,
+        "Viale Aviatori": 2,
+        "Via Marcuzzi": 3,
+        "Via Napoli": 4,
+        "Corso Roma": 5,
+        "Via Lattea": 6,
+        "Via degli Dei": 7,
+        "Via delle querce": 8,
+        "Viale del Todis": 9,
+        "Corso Umberto Primo": 10 }
+    
+    indrizzoVia = {0:"Via Capruzzi",
+        1:"Via Policlinico",
+        2:"Viale Aviatori",
+        3:"Via Marcuzzi",
+        4:"Via Napoli",
+        5:"Corso Roma",
+        6:"Via Lattea",
+        7:"Via degli Dei",
+        8:"Via delle querce",
+        9:"Viale del Todis",
+        10:"Corso Umberto Primo"}
+    
+    #draw_grid(diagram4, point_to=came_from, start=start, goal=goal)
+    print()
+    #draw_grid(diagram4, path=reconstruct_path(came_from, start=start, goal=goal))
+    context.bot.send_message(chat_id=update.effective_chat.id, text="L'ambulanza sta arrivando")
+    context.bot.send_message(chat_id=update.effective_chat.id, text=f"Minuti previsti per l'arrivo: {cost_so_far.get((7, 1))}")
+    
+    #draw_grid(diagram4, number=cost_so_far, start=start, goal=goal)
+    
+    path=reconstruct_path(came_from, start=start, goal=goal)
+    
+    costruisciPercorsoVie(path, indrizzoVia)

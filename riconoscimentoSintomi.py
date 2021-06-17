@@ -132,17 +132,20 @@ def riconoscimentoSintomo(inputSintomo,update, context, dispatcher, updater):
     return listaSintomiDefinitiva[0]
     
 class Malattia:
-    def __init__(self, malattiaInput, descInput, linkInput):
+    def __init__(self, malattiaInput, descInput, linkInput, listaSintomi):
         self.nomeMalattia = malattiaInput
         self.descrizione = descInput
         self.linkWiki = linkInput
+        self.sintomi = listaSintomi
         
     def getNome(self):
         return self.nomeMalattia 
     def getDescrizione(self):
         return self.descrizione 
     def getLinkWiki(self):
-        return self.linkWiki 
+        return self.linkWiki
+    def getListaSintomi(self):
+        return self.sintomi
 
 def predizioneMalattiaBayes(listaSintomiUtente):
     f=open("res/datasetConditionsIT.json")
@@ -154,7 +157,7 @@ def predizioneMalattiaBayes(listaSintomiUtente):
     listaMalattie = {}
     
     for malattia in data:
-        listaMalattie[malattia["name"]] = Malattia(malattia['name'], malattia['descriptions'], malattia.get('wikipedia'))
+        listaMalattie[malattia["name"]] = Malattia(malattia['name'], malattia['descriptions'], malattia.get('wikipedia'), malattia.get('symptoms'))
         
     f.close()
 
@@ -189,31 +192,34 @@ def predizioneMalattiaAlbero(listaSintomiUtente):
     listaMalattie = {}
     
     for malattia in dataMalattie:
-        listaMalattie[malattia["name"]] = Malattia(malattia['name'], malattia['descriptions'], malattia.get('wikipedia'))
+        listaMalattie[malattia["name"]] = Malattia(malattia['name'], malattia['descriptions'], malattia.get('wikipedia'),  malattia.get('symptoms'))
         
     f.close()
     
     listacopia = listaMalattie.copy()
+    dataMalattie = listaMalattie.copy()
     
     for sintomoutente in listaSintomiUtente:
         for malattia in dataMalattie:
             trovato = False
-            for sintomomalattia in malattia["symptoms"]:
-                if sintomomalattia["name"] == sintomoutente.getUrl():
+            for sintomo in dataMalattie[malattia].getListaSintomi():
+                if sintomo["name"] == sintomoutente.getUrl():
                     trovato = True
-            if trovato == False:       
-                listacopia.remove(malattia)
+            if trovato == False:      
+                listacopia.pop(malattia)
         dataMalattie = listacopia.copy()
               
     dictMalattia = {}
-        
+            
     for malattia in dataMalattie:
         risultato = 1
-        for sintomo in malattia["symptoms"]:
-            if sintomo["name"] in listaSintomiUtente:
-                risultato *= sintomo["probability"]
-        dictMalattia[malattia["name"]] = risultato
+        for sintomo in dataMalattie[malattia].getListaSintomi():
+            for sintomoUtente in listaSintomiUtente:
+                if (sintomo['name'] == sintomoUtente.getUrl()):
+                    risultato += sintomo["probability"]
+        dictMalattia[dataMalattie[malattia]] = risultato
         
         
+    print(sorted(dictMalattia.items() , key=lambda x: x[1]))
     maxProbability = max(dictMalattia, key=dictMalattia.get)
-    print(maxProbability)
+    return maxProbability
