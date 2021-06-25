@@ -90,6 +90,11 @@ def echo(update, context):
                 elif(sistema.getStato() == 2):
                     risultato = riconoscimentoSintomi.predizioneMalattiaAlbero(utente.getSintomi())
                     
+                if (risultato == 0)    :
+                    context.bot.send_message(chat_id=update.effective_chat.id, text="Con i dati che mi hai fornito con il sistema ad albero non sono riuscito a trovare una malattia nel database")
+                    context.bot.send_message(chat_id=update.effective_chat.id, text="Effettuo comunque una predizione con il metodo Bayesiano")
+                    risultato = riconoscimentoSintomi.predizioneMalattiaBayes(utente.getSintomi())
+
                 context.bot.send_message(chat_id=update.effective_chat.id, text=f"Secondo i dati che miei fornito potresti avere: *{risultato.getNome()}*", parse_mode=telegram.ParseMode.MARKDOWN)
                 # Fine predizione 
                 
@@ -144,6 +149,8 @@ def gestoreMessaggi():
 
 def start(update, context):
     sistema.reset()
+    utente.sintomi = list()
+    
     context.bot.send_message(chat_id=update.effective_chat.id, text="Ciao sono il bot per predire malattie in base ai tuoi sintomi.")
     
     keyboard = []

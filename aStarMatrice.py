@@ -146,7 +146,7 @@ def costruisciPercorsoVie(percorsoCompleto, indrizzoVia):
     
     for posizione in percorsoCompleto:
         percorsoVie.append((indrizzoVia.get(posizione[1]), posizione[0]))
-      #print(percorsoVie)
+    #print(percorsoVie)
         
 
 # ----------------------------------------------

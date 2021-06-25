@@ -71,6 +71,7 @@ def buttonCallback(update, context, listaSintomiDefinitiva):
     reply_markup = InlineKeyboardMarkup(keyboard)
     
     update.message.reply_text('Scegli uno tra questi:', reply_markup=reply_markup)
+    
 
 def risultatoCallBack(update, context):
     query = update.callback_query
@@ -220,6 +221,9 @@ def predizioneMalattiaAlbero(listaSintomiUtente):
         dictMalattia[dataMalattie[malattia]] = risultato
         
         
+    if (len(dictMalattia)==0):
+        return 0
     print(sorted(dictMalattia.items() , key=lambda x: x[1]))
+    
     maxProbability = max(dictMalattia, key=dictMalattia.get)
     return maxProbability
