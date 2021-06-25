@@ -17,13 +17,16 @@ class SquareGrid:
         self.height = height
         self.walls: List[GridLocation] = []
     
+    #controllo fuori mappa
     def in_bounds(self, id: GridLocation) -> bool:
         (x, y) = id
         return 0 <= x < self.width and 0 <= y < self.height
     
+    #controllo muro
     def passable(self, id: GridLocation) -> bool:
         return id not in self.walls
     
+    #acquisizione vicini
     def neighbors(self, id: GridLocation) -> Iterator[GridLocation]:
         (x, y) = id
         neighbors = [(x+1, y), (x-1, y), (x, y-1), (x, y+1)] # E W N S
@@ -44,6 +47,7 @@ class GridWithWeights(SquareGrid):
     def cost(self, from_node: GridLocation, to_node: GridLocation) -> float:
         return self.weights.get(to_node, 1)
     
+    #frontiera formata da una coda con priorità ordinata sulla base di f(p)= costo(p)+euristica(p)
 class PriorityQueue:
     def __init__(self):
         self.elements: List[Tuple[float, T]] = []
@@ -57,9 +61,11 @@ class PriorityQueue:
     def get(self) -> T:
         return heapq.heappop(self.elements)[1]
     
+    
 def heuristic(a: GridLocation, b: GridLocation) -> float:
     (x1, y1) = a
     (x2, y2) = b
+    #distanza prevista da grafo
     return abs(x1 - x2) + abs(y1 - y2)
 
 def reconstruct_path(came_from: Dict[Location, Location],
@@ -81,20 +87,25 @@ def a_star_search(graph: WeightedGraph, start: Location, goal: Location):
     came_from[start] = None
     cost_so_far[start] = 0
     
+    #finchè la frontiera non è vuota
     while not frontier.empty():
+        #prendo il primo della coda con priorità
         current: Location = frontier.get()
         
         if current == goal:
             break
-        
+        #ciclo su tutti i vicini di current
         for next in graph.neighbors(current):
+            #costo di currente + costo di current verso next
             new_cost = cost_so_far[current] + graph.cost(current, next)
+            #se il costo del vicino non è meorizzato oppure questo è minore
+            #lo inizializzo
             if next not in cost_so_far or new_cost < cost_so_far[next]:
                 cost_so_far[next] = new_cost
-                priority = new_cost + heuristic(next, goal)                
+                priority = new_cost + heuristic(next, goal)
                 frontier.put(next, priority)
                 came_from[next] = current
-
+                
     return came_from, cost_so_far
 
 def draw_tile(graph, id, style):
@@ -135,7 +146,7 @@ def costruisciPercorsoVie(percorsoCompleto, indrizzoVia):
     
     for posizione in percorsoCompleto:
         percorsoVie.append((indrizzoVia.get(posizione[1]), posizione[0]))
-    #print(percorsoVie)
+      #print(percorsoVie)
         
 
 # ----------------------------------------------
