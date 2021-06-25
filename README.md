@@ -9,7 +9,7 @@
 
 # Introduzione
 
-**ProgettoIConBot** è un chatbot progettato per l'assistenza sanitaria, per aiutare l'utente ad individuare, sulla base dei sintomi risontrati, la patologia più vicina ai sintomi inseriti.
+**ProgettoIConBot** è un chatbot progettato per l'assistenza sanitaria, per aiutare l'utente ad individuare, sulla base dei sintomi riscontrati, la patologia più vicina ai sintomi inseriti.
 
 Il progetto è stato sviluppato da 3 ragazzi del terzo anno di **"Informatica" dell'Università degli studi di Bari Aldo Moro** durante **l'A.A. 2020/21**
 
