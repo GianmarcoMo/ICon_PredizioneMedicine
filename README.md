@@ -6,11 +6,10 @@
 1. [Introduzione](#Introduzione)
 2. [Requisiti specifici](#Requisiti-specifici)
 3. [System Design](#System-Design)
-4. [Esempio pratico](#Esempio-pratico)
 
 # Introduzione
 
-**ProgettoIConBot** è un chatbot progettato per l'assistenza sanitaria agli anzini e non, per aiutare l'utente ad individuare, sulla base dei sintomi risontrati, la più probabile malattia **associata** ai sintomi. 
+**ProgettoIConBot** è un chatbot progettato per l'assistenza sanitaria, per aiutare l'utente ad individuare, sulla base dei sintomi risontrati, la più probabile malattia **associata** ai sintomi. 
 
 Il progetto è stato sviluppato da 3 ragazzi del terzo anno di **"Informatica" dell'Università degli studi di Bari Aldo Moro** durante **l'A.A. 2020/21**
 
