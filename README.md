@@ -53,27 +53,25 @@ L'avvio viene eseguito tramite **l'inserimento del token** generato tramite **Bo
 
 L'utente, avvia la chat con il bot tramite il pulsante grafico predisposto da telegram stesso o tramite il comando "/start", successivamente dovrà scegliere che tipo di predizione delle malattie vorrà utlizzare, qui abbiamo due scelte tra cui "Avvia predizione tramite metodo Bayesiano" ed "Avvia predizione tramite ricerca ad albero". Quando si seleziona uno dei due pulsanti verrà chiesta un ulteriore conferma per la scelta del metodo che è possibile effettuare interagendo con il bot. Come suggerito dal bot è sempre possibile, anche in questa fase di conferma, il riavvio del bot attraverso il comando "/restart".
 
+<img src="documentazioneMedia/scelta.PNG" alt="drawing" width="400"/>
+
 Dopodichè i sintomi vengono gestiti tramite un algoritmo che processa i sintomi prima effettuando la tokenizzazione della frase scritta dall'utente e poi avviene la ricerca all'interno del dataset, dopo aver trovato il sintomo nel dataset, viene creato un oggetto contenente tutti i dettagli di quel sintomo.
 
 ### Predizione malattia metodo Bayesiano
 
-Dopo aver indicato tutti i sintomi da parte dell'utente, viene effettuata la predizione tramite il **metodo Bayesiano** sul dataset presente nel progetto. Dopo aver eseguito il calcolo, il chatbot restituisce la malattia predetta.
+Dopo aver indicato tutti i sintomi da parte dell'utente, viene effettuata la predizione tramite il **metodo Bayesiano** sul dataset presente nel progetto. Dopo aver eseguito il calcolo, il chatbot restituisce la malattia predetta. Come metodo di predizione si è scelto di utilizzare il naive Bayes con la correzione di Laplace. Si è scelto di utilizzare questo modello sulla base del dataset a disposizione.
+
+<img src="documentazioneMedia/finePredizioneBayes.PNG" alt="drawing" width="400"/>
 
 ### Predizione malattia tramite ricerca su albero
 
-Dopo aver indicato tutti i sintomi da parte dell'utente, viene effettuata la predizione tramite una **struttura ad albero**, infatti partendo dal dataset iniziale delle malattia questo verrà di volta in volta ridotto in base ai sintomi selezionati. Una volta arrivato ad un nodo foglia avremo l'output. Potrebbe capitare che l'albero di decisione non porti a nessun output, in tal caso viene mostrato la predizione utilizzando il metodo Bayesiano
+Dopo aver indicato tutti i sintomi da parte dell'utente, viene effettuata la predizione tramite una **struttura ad albero**, infatti partendo dal dataset iniziale delle malattia questo verrà di volta in volta ridotto in base ai sintomi selezionati. Una volta arrivato ad un nodo foglia avremo l'output. Potrebbe capitare che l'albero di decisione non porti a nessun output, in tal caso viene mostrato la predizione utilizzando mtetodo Bayesiano.
 
-# Esempio pratico
+<img src="documentazioneMedia/finePredizioneAlbero.PNG" alt="drawing" width="400"/>
 
-## Esempio 1
+### Richiesta ambulanza
 
-<img src="documentazioneMedia/35739CE8-BF14-42E1-8FEE-9B4811669F12.jpeg" alt="drawing" width="400"/>
+Dopo aver ottenuto l'output da una delle due predizioni, il chatbot chiederà all'utente se desiderasse ricevere assistenza da un ambulanza. In caso di conferma il sistema simulerà l'acquisizione tramite gps dell'utente così da calcolare il tempo di arrivo dell'ambulanza. La richiesta dell'ambulanza è un problema di ricerca in uno spazio di stati, che si è deciso di risolvere attraverso una ricerca informata su grafo con l'algoritmo **A*/**.  Si è scelto questo algoritmo perchè trovandoci un una situazione in cui abbiamo fattore di ramificazione finito del grafo, funzone di costo > 0 per ogni arco e avendo un'euristica ammissibile questo porterà A* a trovare come prima soluzione la migliore soluzione garantita.
 
-## Esempio 2
+<img src="documentazioneMedia/Ambulanza.PNG" alt="drawing" width="400"/>
 
-<img src="documentazioneMedia/9807754B-1DA4-49EA-99E9-0EB425CF4A2C.jpeg" alt="drawing" width="400"/>
-
-## Esempio 3
-
-<img src="documentazioneMedia/B2AF7AFD-D75A-4E13-A834-2CB254EF9159.jpeg" alt="drawing" width="400"/>
-<img src="documentazioneMedia/B2AF7AFD-D75A-4E13-A834-2CB254EF9159part2.jpeg" alt="drawing" width="400"/>
