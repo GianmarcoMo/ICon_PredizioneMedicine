@@ -146,7 +146,6 @@ def costruisciPercorsoVie(percorsoCompleto, indrizzoVia):
     
     for posizione in percorsoCompleto:
         percorsoVie.append((indrizzoVia.get(posizione[1]), posizione[0]))
-    #print(percorsoVie)
         
 
 # ----------------------------------------------
@@ -198,13 +197,13 @@ def ambulanza(update,context):
         9:"Viale del Todis",
         10:"Corso Umberto Primo"}
     
-    #draw_grid(diagram4, point_to=came_from, start=start, goal=goal)
+    draw_grid(diagram4, point_to=came_from, start=start, goal=goal)
     print()
-    #draw_grid(diagram4, path=reconstruct_path(came_from, start=start, goal=goal))
+    draw_grid(diagram4, path=reconstruct_path(came_from, start=start, goal=goal))
     context.bot.send_message(chat_id=update.effective_chat.id, text="L'ambulanza sta arrivando")
     context.bot.send_message(chat_id=update.effective_chat.id, text=f"Minuti previsti per l'arrivo: {cost_so_far.get((7, 1))}")
     
-    #draw_grid(diagram4, number=cost_so_far, start=start, goal=goal)
+    draw_grid(diagram4, number=cost_so_far, start=start, goal=goal)
     
     path=reconstruct_path(came_from, start=start, goal=goal)
     

@@ -65,22 +65,12 @@ def buttonCallback(update, context, listaSintomiDefinitiva):
     test.nuovoStato()
     keyboard = []
     for sintomo in listaSintomiDefinitiva:
-        keyboard.append([InlineKeyboardButton(sintomo.getNome(), callback_data = sintomo.getUrl())])
         test.getStato().append(sintomo.getUrl())
-
+        keyboard.append([InlineKeyboardButton(sintomo.getNome(), callback_data = sintomo.getUrl())])
+        
     reply_markup = InlineKeyboardMarkup(keyboard)
     
     update.message.reply_text('Scegli uno tra questi:', reply_markup=reply_markup)
-    
-
-def risultatoCallBack(update, context):
-    query = update.callback_query
-    query.answer()
-    
-    query.edit_message_text(text=f"Il sintomo che hai scelto indica questo:\n_{sintomi.get(query.data).getDescrizione()[0]}_\n\nper confermare digita *conferma* oppure reinserire il sintomo", parse_mode=telegram.ParseMode.MARKDOWN)
-    for sintomo in test.getStato():
-        if (sintomo!=query.data):
-            test.getStato().remove(sintomo)
 
 
 def riconoscimentoSintomo(inputSintomo,update, context, dispatcher, updater):
@@ -120,7 +110,6 @@ def riconoscimentoSintomo(inputSintomo,update, context, dispatcher, updater):
     if(len(listaSintomiDefinitiva) > 1):
             context.bot.send_message(chat_id=update.effective_chat.id, text='/risultato')
             updater.dispatcher.add_handler(CommandHandler('risultato', buttonCallback(update, context, listaSintomiDefinitiva)))
-            updater.dispatcher.add_handler(CallbackQueryHandler(risultatoCallBack))
             
             return '0' 
     else:
@@ -223,7 +212,7 @@ def predizioneMalattiaAlbero(listaSintomiUtente):
         
     if (len(dictMalattia)==0):
         return 0
-    print(sorted(dictMalattia.items() , key=lambda x: x[1]))
+    #print(sorted(dictMalattia.items() , key=lambda x: x[1]))
     
     maxProbability = max(dictMalattia, key=dictMalattia.get)
     return maxProbability

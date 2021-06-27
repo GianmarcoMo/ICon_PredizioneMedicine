@@ -200,6 +200,9 @@ def risultatoCallBack(update, context):
         aStarMatrice.ambulanza(update, context)
     elif(cqd == "no_chiama"):
         context.bot.send_message(chat_id=update.effective_chat.id, text="Clicca o digita /restart per confermare")
+    else:
+        query.edit_message_text(text=f"Digita *{query.data}* per confermare il sintomo", parse_mode=telegram.ParseMode.MARKDOWN)
+
          
 # -------------------------------------------
 sistema = Sistema()
