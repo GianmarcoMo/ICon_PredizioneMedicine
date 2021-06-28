@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
-from telegram.ext import CommandHandler, CallbackQueryHandler
+from telegram.ext import CallbackQueryHandler
 import telegram
 import logging
-import predizione
+
 import riconoscimentoSintomi
 import aStarMatrice
 

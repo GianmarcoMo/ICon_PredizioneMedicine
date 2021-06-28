@@ -9209,52 +9209,6 @@
       ]
    },
    {
-      "url":"pregnancy",
-      "name":"gravidanza",
-      "symptoms":[
-         {
-            "probability":27,
-            "name":"uterine-contractions"
-         },
-         {
-            "probability":25,
-            "name":"pain-during-pregnancy"
-         },
-         {
-            "probability":24,
-            "name":"problems-during-pregnancy"
-         },
-         {
-            "probability":8,
-            "name":"spotting-or-bleeding-during-pregnancy"
-         },
-         {
-            "probability":4,
-            "name":"cramps-and-spasms"
-         },
-         {
-            "probability":2,
-            "name":"pelvic-pressure"
-         }
-      ],
-      "wikipedia":"https://it.wikipedia.org/wiki/gravidanza",
-      "senses":[
-         "gestazione",
-         "gravidanza",
-         "incinta",
-         "gravidanze",
-         "prenatale",
-         "gravide",
-         "simbiosi (gravidanza)",
-         "maternit\u00e0",
-         "periodo di gestazione"
-      ],
-      "descriptions":[
-         "Gravidanza o gestazione \u00e8 lo stato della donna che porta nel proprio utero il prodotto della fecondazione.",
-         "Periodo che va dal concepimento al parto, ovvero il periodo in cui il nascituro si sviluppa nel corpo della madre"
-      ]
-   },
-   {
       "url":"schizophrenia",
       "name":"schizofrenia",
       "symptoms":[
@@ -12437,68 +12391,6 @@
       ],
       "descriptions":[
          "In psicologia e psichiatria il disturbo post-traumatico da stress \u00e8 l'insieme delle forti sofferenze psicologiche che conseguono ad un evento traumatico, catastrofico o violento."
-      ]
-   },
-   {
-      "url":"problem-during-pregnancy",
-      "name":"Problema durante la gravidanza",
-      "symptoms":[
-         {
-            "probability":76,
-            "name":"sharp-abdominal-pain"
-         },
-         {
-            "probability":75,
-            "name":"pain-during-pregnancy"
-         },
-         {
-            "probability":49,
-            "name":"problems-during-pregnancy"
-         },
-         {
-            "probability":39,
-            "name":"lower-abdominal-pain"
-         },
-         {
-            "probability":36,
-            "name":"spotting-or-bleeding-during-pregnancy"
-         },
-         {
-            "probability":32,
-            "name":"nausea"
-         },
-         {
-            "probability":31,
-            "name":"headache"
-         },
-         {
-            "probability":30,
-            "name":"back-pain"
-         },
-         {
-            "probability":28,
-            "name":"vomiting"
-         },
-         {
-            "probability":27,
-            "name":"burning-abdominal-pain"
-         },
-         {
-            "probability":27,
-            "name":"pelvic-pain"
-         },
-         {
-            "probability":21,
-            "name":"cramps-and-spasms"
-         }
-      ],
-      "wikipedia":null,
-      "senses":[
-         "Problema durante la gravidanza",
-         "Problema di gravidanza"
-      ],
-      "descriptions":[
-         "Eventuali complicanze durante la gravidanza, tra cui parto precoce, aborto spontaneo, diabete materno, insufficienza cardiaca materna, malattia mattutina persistente, anemia, infezioni del tratto urinario, ecc."
       ]
    },
    {
