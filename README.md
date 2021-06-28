@@ -70,7 +70,7 @@ Dopo aver indicato tutti i sintomi da parte dell'utente, viene effettuata la pre
 
 ### Richiesta ambulanza
 
-Dopo aver ottenuto l'output da una delle due predizioni, il chatbot chiederà all'utente se desiderasse ricevere assistenza da un ambulanza. In caso di conferma il sistema simulerà l'acquisizione tramite gps dell'utente così da calcolare il tempo di arrivo dell'ambulanza. La richiesta dell'ambulanza è un problema di ricerca, che si è deciso risolvere attraverso l'algoritmo di ricerca informata **A*/**.  Si è scelto questo algoritmo perchè trovandoci un una situazione in cui abbiamo fattore di ramificazione finito del grafo, funzone di costo > 0 per ogni arco e avendo un'euristica ammissibile questo porterà A* a trovare come prima soluzione la migliore soluzione garantita, inoltre funziona anche in presenza di cicli.
+Dopo aver ottenuto l'output da una delle due predizioni, il chatbot chiederà all'utente se desiderasse ricevere assistenza da un ambulanza. In caso di conferma il sistema simulerà l'acquisizione tramite gps dell'utente così da calcolare il tempo di arrivo dell'ambulanza. La richiesta dell'ambulanza è un problema di ricerca, che si è deciso risolvere attraverso l'algoritmo di ricerca informata **A***.  Si è scelto questo algoritmo perchè trovandoci un una situazione in cui abbiamo fattore di ramificazione finito del grafo, funzone di costo > 0 per ogni arco e avendo un'euristica ammissibile questo porterà A* a trovare come prima soluzione la migliore soluzione garantita, inoltre funziona anche in presenza di cicli.
 
 <img src="documentazioneMedia/Ambulanza.PNG" alt="drawing" width="400"/>
 
